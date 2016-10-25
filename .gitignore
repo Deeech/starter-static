@@ -28,3 +28,5 @@ node_modules
 
 static/external/*
 yarn.lock
+
+dist
