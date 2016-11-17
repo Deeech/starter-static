@@ -16,6 +16,7 @@
     "gulp": "^3.9.1",
     "gulp-pug": "^3.1.0",
     "gulp-sass": "^2.3.2",
+    "mq-sass": "^0.6.0",
     "webpack": "^1.13.2",
     "webpack-stream": "^3.2.0"
   },
