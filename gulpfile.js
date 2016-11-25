@@ -8,21 +8,24 @@ gulp.task('pug', function() {
   return gulp.src('./src/pug/**/*.pug')
   .pipe(pug())
   .pipe(gulp.dest('./dist/'))
-  .pipe(browserSync.reload({stream: true}));;
+  .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('sass', function () {
   return gulp.src('./src/scss/**/*.scss')
+  .pipe(sass({
+    includePaths: ['node_modules/mq-sass/stylesheets']
+  }))
   .pipe(sass().on('error', sass.logError))
   .pipe(gulp.dest('./dist/css'))
-  .pipe(browserSync.reload({stream: true}));;
+  .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('js', function() {
   return gulp.src('./src/js/entry.js')
   .pipe(webpack( require('./webpack.config.js') ))
   .pipe(gulp.dest('dist/js'))
-  .pipe(browserSync.reload({stream: true}));;
+  .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('browser-sync', function() {

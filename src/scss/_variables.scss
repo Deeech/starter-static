@@ -1,1 +1,28 @@
 $red-color: red;
+
+@import 'mq-sass';
+@lost gutter 0px;
+$mq-responsive: true;
+
+// Name your breakpoints in a way that creates a ubiquitous language
+// across team members. It will improve communication between
+// stakeholders, designers, developers, and testers.
+$mq-breakpoints: (
+    mobile-sm:  320px,
+    mobile-md:  375px,
+    mobile-lg:  425px,
+    tablet:  768,
+    desktop: 980px,
+    tabletWide: 1020px,
+    wide:    1500px,
+
+    // Tweakpoints
+    desktopAd: 810px,
+    mobileLandscape: 480px
+);
+
+@include mq(tablet) {
+	.testresp {
+		background-color: red;
+	}
+}
