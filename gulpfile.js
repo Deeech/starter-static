@@ -2,7 +2,11 @@ var gulp = require('gulp'),
     pug = require('gulp-pug'),
     sass = require('gulp-sass')
     webpack = require('webpack-stream')
-    browserSync  = require('browser-sync');
+    browserSync  = require('browser-sync'),
+    autoprefixer = require('autoprefixer'),
+    postcss = require('gulp-postcss'),
+    gridkiss = require('postcss-grid-kiss');
+
 
 gulp.task('pug', function() {
   return gulp.src('./src/pug/**/*.pug')
@@ -12,7 +16,12 @@ gulp.task('pug', function() {
 });
 
 gulp.task('sass', function () {
+  var processors = [
+    gridkiss, autoprefixer,
+  ];
+
   return gulp.src('./src/scss/**/*.scss')
+  .pipe(postcss(processors))
   .pipe(sass({
     includePaths: ['node_modules/mq-sass/stylesheets']
   }))
